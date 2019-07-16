@@ -1,6 +1,6 @@
 import svgIcon from './icon/svgIcon';
 
-// import '../assets/icons/';
+import '../assets/icons/';
 
 const components = [{ name: svgIcon.name, component: svgIcon }];
 

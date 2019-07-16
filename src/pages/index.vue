@@ -10,7 +10,7 @@
 .layout-logo {
     width: 100px;
     height: 30px;
-    background: #5b6270;
+    /* background: #5b6270; */
     border-radius: 3px;
     float: left;
     position: relative;
@@ -44,7 +44,7 @@
         <Header :style="{position: 'fixed', width: '100%'}">
             <Menu mode="horizontal" theme="dark" active-name="1" @on-select='handMenu'>
                 <div class="layout-logo">
-
+                  <svg-icon color="#cccccc" name="rt-base-logo" :size="30"></svg-icon>
                 </div>
                 <div class="layout-nav">
                     <MenuItem name="1">
