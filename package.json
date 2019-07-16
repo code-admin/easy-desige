@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "gojs": "^2.0.14",
     "iview": "^3.4.2",
+    "svg-sprite-loader": "^4.1.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
