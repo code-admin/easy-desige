@@ -9,7 +9,7 @@
 
 .layout-logo {
     width: 100px;
-    height: 30px;
+    height: 40px;
     /* background: #5b6270; */
     border-radius: 3px;
     float: left;
@@ -41,10 +41,10 @@
 <template>
 <div class="layout">
     <Layout>
-        <Header :style="{position: 'fixed', width: '100%'}">
+        <Header :style="{position: 'fixed', width: '100%', background: '#336699'}">
             <Menu mode="horizontal" theme="dark" active-name="1" @on-select='handMenu'>
                 <div class="layout-logo">
-                  <svg-icon color="#cccccc" name="rt-base-logo" :size="30"></svg-icon>
+                  <svg-icon name="easy-desige-logo" :size="40"></svg-icon>
                 </div>
                 <div class="layout-nav">
                     <MenuItem name="1">
