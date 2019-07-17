@@ -9,6 +9,7 @@
         <div>
             <button id="SaveButton" @click="save()">Save</button>
             <button @click="load()">Load</button>
+            <button @click="download()">Download</button>
             Diagram Model saved in JSON format:
         </div>
         <textarea id="mySavedModel" style="width:100%;height:116px">{ "class": "go.GraphLinksModel", "linkFromPortIdProperty": "fromPort", "linkToPortIdProperty": "toPort", "nodeDataArray": [],
@@ -435,6 +436,17 @@ export default {
         saveDiagramProperties() {
             this.myDiagram.model.modelData.position = go.Point.stringify(this.myDiagram.position);
         },
+        download(e) {
+            let img = this.myDiagram.makeImage({
+                scale: 1,
+            });
+            let url = img.src;
+            let a = document.createElement('a');
+            let event = new MouseEvent('click');
+            a.download = 'easy-desige';
+            a.href = url;
+            a.dispatchEvent(event);
+        },
         loadDiagramProperties(e) {
             // set Diagram.initialPosition, not Diagram.position, to handle initialization side-effects
             var pos = this.myDiagram.model.modelData.position;
@@ -444,6 +456,6 @@ export default {
 }
 </script>
 
-<style lang="">
+<style>
 
 </style>

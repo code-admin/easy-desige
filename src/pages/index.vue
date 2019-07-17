@@ -8,13 +8,13 @@
 }
 
 .layout-logo {
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 48px; */
     /* background: #5b6270; */
-    border-radius: 3px;
+    /* border-radius: 3px; */
     float: left;
     position: relative;
-    top: 15px;
+    top: 8px;
     left: 20px;
 }
 
@@ -26,6 +26,10 @@
 
 .layout-footer-center {
     text-align: center;
+}
+
+.ivu-menu-dark {
+    background: #183661;
 }
 
 /* .vertical-center-modal {
@@ -41,10 +45,10 @@
 <template>
 <div class="layout">
     <Layout>
-        <Header :style="{position: 'fixed', width: '100%', background: '#336699'}">
+        <Header :style="{position: 'fixed', width: '100%', background: '#183661'}">
             <Menu mode="horizontal" theme="dark" active-name="1" @on-select='handMenu'>
                 <div class="layout-logo">
-                  <svg-icon name="easy-desige-logo" :size="40"></svg-icon>
+                  <svg-icon name="easy-desige-logo-white" :size="48"></svg-icon>
                 </div>
                 <div class="layout-nav">
                     <MenuItem name="1">
