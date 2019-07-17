@@ -7,9 +7,9 @@
 
     <div>
         <div>
-            <button id="SaveButton" @click="save()">Save</button>
+            <button @click="save()" :disabled="enable">Save</button>
             <button @click="load()">Load</button>
-            <button @click="download()">Download</button>
+            <button @click="download()" :disabled="showDownload">Download</button>
             Diagram Model saved in JSON format:
         </div>
         <textarea id="mySavedModel" style="width:100%;height:116px">{ "class": "go.GraphLinksModel", "linkFromPortIdProperty": "fromPort", "linkToPortIdProperty": "toPort", "nodeDataArray": [],
@@ -25,7 +25,9 @@ var $ = go.GraphObject.make;
 export default {
     data() {
         return {
-            myDiagram: null
+            myDiagram: null,
+            enable: false,
+            showDownload: false,
         }
     },
     mounted() {
@@ -94,7 +96,9 @@ export default {
             // when the document is modified, add a "*" to the title and enable the "Save" button
             this.myDiagram.addDiagramListener("Modified", e => {
                 var button = document.getElementById("SaveButton");
-                if (button) button.disabled = !this.myDiagram.isModified;
+
+                this.enable = !this.myDiagram.isModified;
+
                 var idx = document.title.indexOf("*");
                 if (this.myDiagram.isModified) {
                     if (idx < 0) document.title += "*";
@@ -102,6 +106,11 @@ export default {
                     if (idx >= 0) document.title = document.title.substr(0, idx);
                 }
             });
+
+            this.myDiagram.addChangedListener(() => {
+                if (this.myDiagram.model.nodeDataArray.length > 0 || this.myDiagram.model.linkDataArray.length > 0) this.showDownload = false;
+                else this.showDownload = true;
+            })
 
             // Define a function for creating a "port" that is normally transparent.
             // The "name" is used as the GraphObject.portId, the "spot" is used to control how links connect
@@ -388,30 +397,30 @@ export default {
                             ),
                         model: new go.GraphLinksModel([ // specify the contents of the Palette
                             {
-                                text: "Start",
+                                text: "开始",
                                 figure: "Circle",
                                 fill: "#00AD5F"
                             },
                             {
-                                text: "Step"
+                                text: "步骤"
                             },
                             {
-                                text: "DB",
+                                text: "数据",
                                 figure: "Database",
                                 fill: "lightgray"
                             },
                             {
-                                text: "???",
+                                text: "条件",
                                 figure: "Diamond",
                                 fill: "lightskyblue"
                             },
                             {
-                                text: "End",
+                                text: "结束",
                                 figure: "Circle",
                                 fill: "#CE0620"
                             },
                             {
-                                text: "Comment",
+                                text: "状态备注",
                                 figure: "RoundedRectangle",
                                 fill: "lightyellow"
                             }
