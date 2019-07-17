@@ -1,6 +1,6 @@
-# easy-desige
+# easy-design
 
-> vue2.0 + go.js online desige
+> vue2.0 + go.js online design
 
 ## Build Setup
 

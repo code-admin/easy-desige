@@ -3,7 +3,7 @@
 /*
  ***
  */
-const req = require.context('!svg-sprite-loader?{"symbolId":"easy-desige-[name]"}!./svgs', false, /.svg$/);
+const req = require.context('!svg-sprite-loader?{"symbolId":"easy-design-[name]"}!./svgs', false, /.svg$/);
 
 const requireAllSvgs = requireContext => requireContext.keys().map(requireContext);
 

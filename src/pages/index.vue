@@ -48,7 +48,7 @@
         <Header :style="{position: 'fixed', width: '100%', background: '#183661'}">
             <Menu mode="horizontal" theme="dark" active-name="1" @on-select='handMenu'>
                 <div class="layout-logo">
-                  <svg-icon name="easy-desige-logo-white" :size="48"></svg-icon>
+                  <svg-icon name="easy-design-logo-white" :size="48"></svg-icon>
                 </div>
                 <div class="layout-nav">
                     <MenuItem name="1">

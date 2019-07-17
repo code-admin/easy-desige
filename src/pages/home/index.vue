@@ -443,7 +443,7 @@ export default {
             let url = img.src;
             let a = document.createElement('a');
             let event = new MouseEvent('click');
-            a.download = 'easy-desige';
+            a.download = 'easy-design';
             a.href = url;
             a.dispatchEvent(event);
         },
